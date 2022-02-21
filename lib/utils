@@ -49,9 +49,19 @@ function install_dotnet() {
   info $BUILD_DIR
   mkdir -p ${BUILD_DIR}/.heroku/dotnet
   info "cp from cache to build dir"
+  info "DOTNET_CACHE_LOCATION"
   info $DOTNET_CACHE_LOCATION
+  ls ${DOTNET_CACHE_LOCATION}
+  info ${DOTNET_CACHE_LOCATION}/runtime
+  ls ${DOTNET_CACHE_LOCATION}/runtime
+  info "BUILD_DIR"
   info $BUILD_DIR
-  cp -r ${DOTNET_CACHE_LOCATION}/runtime ${BUILD_DIR}/.heroku/dotnet
+  ls $BUILD_DIR
+  info $BUILD_DIR/.heroku/dotnet
+  ls $BUILD_DIR/.heroku/dotnet
+  info "copying"
+  cp -v -r ${DOTNET_CACHE_LOCATION}/runtime ${BUILD_DIR}/.heroku/dotnet
+  info "end install dotnet"
 }
 
 export_env_dir() {
